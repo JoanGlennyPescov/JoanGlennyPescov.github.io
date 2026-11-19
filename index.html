@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joan Glenny-Pescov — Computational Scientist</title>
+<meta name="description" content="Computational scientist in drug discovery and AI. Protein modeling, in silico screening, machine learning, and AI evaluation on scientific data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#F7F8FA; --panel:#FFFFFF; --ink:#0F172A; --body:#334155; --muted:#475569;
+    --line:#E2E8F0; --line-strong:#CBD5E1; --accent:#0F766E; --accent-dark:#115E59;
+    --dark:#0F172A; --dark-ink:#F8FAFC; --dark-body:#CBD5E1; --mint:#5EEAD4;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent)}
+  a:hover{color:var(--accent-dark)}
+  h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif; margin:0}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding-left:32px; padding-right:32px}
+  @media (max-width:640px){ .wrap{padding-left:20px; padding-right:20px} }
+
+  /* header */
+  .site-head{display:flex; flex-wrap:wrap; gap:16px; align-items:center;
+    justify-content:space-between; padding-top:24px; padding-bottom:24px}
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px;
+    color:var(--ink); text-decoration:none}
+  .site-nav{display:flex; flex-wrap:wrap; gap:24px; font-size:15px; font-weight:500}
+  .site-nav a{color:var(--body); text-decoration:none}
+  .site-nav a:hover{color:var(--accent)}
+
+  /* buttons */
+  .btn{display:inline-flex; align-items:center; min-height:48px; padding:0 22px;
+    border-radius:10px; font-weight:600; text-decoration:none}
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-primary:hover{background:var(--accent-dark); color:#fff}
+  .btn-ghost{border:1.5px solid var(--line-strong); color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+
+  /* hero */
+  .hero{display:flex; flex-wrap:wrap; gap:48px; align-items:center;
+    padding-top:56px; padding-bottom:72px}
+  .hero-text{flex:999 1 520px; min-width:0; display:flex; flex-direction:column; gap:20px}
+  .hero h1{font-size:clamp(32px,5.2vw,48px); line-height:1.12; font-weight:600; letter-spacing:-.01em}
+  .hero p{margin:0; font-size:18px; line-height:1.6; color:var(--muted); max-width:620px}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; padding-top:8px}
+  .hero-media{flex:1 1 340px; display:flex; justify-content:center}
+  .figure{position:relative; width:min(340px,100%); aspect-ratio:1/1;
+    border-radius:24px; overflow:hidden; background:#E2E8F0}
+  .figure img{width:100%; height:100%; object-fit:cover; display:block}
+  .avatar{position:absolute; bottom:-18px; right:-18px; width:112px; height:112px;
+    border-radius:999px; object-fit:cover; border:4px solid var(--bg)}
+  .hero-media .frame{position:relative; width:min(340px,100%)}
+
+  /* sections */
+  section{scroll-margin-top:24px}
+  .band{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .section-pad{padding-top:72px; padding-bottom:72px}
+  h2{font-size:clamp(26px,3.6vw,32px); font-weight:600}
+
+  /* projects */
+  .cards{display:flex; flex-wrap:wrap; gap:24px; margin-top:32px}
+  .card{flex:1 1 460px; min-width:0; border:1px solid var(--line); border-radius:16px;
+    padding:28px; display:flex; flex-direction:column; gap:12px; background:var(--bg)}
+  .card .where{font-size:14px; color:var(--muted)}
+  .card h3{font-size:22px; font-weight:600; line-height:1.25}
+  .card p{margin:0; font-size:16px; line-height:1.6; color:var(--body)}
+  .card .stack{font-size:14px; color:var(--muted)}
+  .card .links{display:flex; gap:16px; font-size:15px; font-weight:600; margin-top:4px}
+
+  /* publications */
+  .split{display:flex; flex-wrap:wrap; gap:48px}
+  .split-head{flex:1 1 260px}
+  .split-body{flex:999 1 560px; min-width:0; display:flex; flex-direction:column; gap:24px}
+  .pub{display:flex; flex-direction:column; gap:6px; padding-bottom:24px; border-bottom:1px solid var(--line)}
+  .pub:last-child{border-bottom:0; padding-bottom:0}
+  .pub .meta{font-size:14px; color:var(--muted)}
+  .pub .title{font-size:18px; font-weight:600; color:var(--ink); text-decoration:none; line-height:1.4}
+  a.title:hover{color:var(--accent)}
+
+  /* toolkit */
+  .dark{background:var(--dark); color:var(--dark-ink)}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:32px; margin-top:32px}
+  .grid h3{font-family:Inter,sans-serif; font-size:17px; font-weight:600; color:var(--mint)}
+  .grid p{margin:8px 0 0; font-size:16px; line-height:1.7; color:var(--dark-body)}
+
+  /* experience */
+  .row{display:flex; flex-wrap:wrap; gap:8px 32px; padding:18px 0; border-bottom:1px solid var(--line)}
+  .row .when{flex:0 0 180px; font-size:15px; color:var(--muted)}
+  .row .what{flex:1 1 360px; min-width:0}
+  .row .role{font-size:18px; font-weight:600}
+  .row .org{font-size:15px; color:var(--muted)}
+
+  /* footer */
+  .site-foot{background:var(--panel); border-top:1px solid var(--line)}
+  .foot-inner{display:flex; flex-wrap:wrap; gap:32px; align-items:center;
+    justify-content:space-between; padding-top:64px; padding-bottom:64px}
+  .foot-inner p{flex:999 1 520px; margin:0; font-size:19px; line-height:1.55; max-width:640px}
+  .foot-links{display:flex; flex-wrap:wrap; gap:12px}
+  .colophon{border-top:1px solid var(--line); padding:20px 0; font-size:14px; color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="wrap site-head">
+  <a class="brand" href="#top">Joan Glenny-Pescov</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="#work">Projects</a>
+    <a href="#pubs">Publications</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section id="top" class="wrap hero">
+  <div class="hero-text">
+    <h1>Computational scientist in drug discovery and AI.</h1>
+    <p>I build protein models, run in silico screens and train machine learning models.
+       I also evaluate how AI models reason about scientific data.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See my projects</a>
+      <a class="btn btn-ghost" href="cv.pdf">Download CV</a>
+    </div>
+  </div>
+  <div class="hero-media">
+    <div class="frame">
+      <div class="figure">
+        <img src="figure.jpg" alt="BUB1B kinase domain model" onerror="this.remove()">
+      </div>
+      <img class="avatar" src="photo.jpg" alt="Joan Glenny-Pescov" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<section id="work" class="band">
+  <div class="wrap section-pad">
+    <h2>Selected projects</h2>
+    <div class="cards">
+
+      <article class="card">
+        <span class="where">2025–2026 · published, AusDM 2026</span>
+        <h3>Mapping which kinases we can actually model</h3>
+        <p>A reproducible pipeline measuring how much experimental structure exists for every
+           kinase domain in the human kinome. Of 499 domains, 160 are well covered, 149 thinly
+           covered and 190 structurally dark — and 26 have no solved relative close enough to
+           model from.</p>
+        <span class="stack">Python, UniProt/SIFTS, KLIFS, RCSB PDB, IDG</span>
+        <div class="links">
+          <a href="https://github.com/JoanGlennyPescov/human-kinome-structural-coverage">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="where">Ph.D. · 2021–2026</span>
+        <h3>Finding inhibitors for a kinase with no complete structure</h3>
+        <p>BUB1B lacks a complete experimental kinase domain, so I built a chimeric model from
+           IntFOLD and AlphaFold3. Multitask deep learning narrowed multi-million-compound
+           libraries, then ensemble docking and molecular dynamics chose what went to ADP-Glo
+           testing.</p>
+        <span class="stack">Python, RDKit, AlphaFold3, IntFOLD, GROMACS, Maestro</span>
+      </article>
+
+      <article class="card">
+        <span class="where">2021–2026 · open source</span>
+        <h3>Making assay data searchable</h3>
+        <p>Extended the BioAssay Ontology with PK/PD, safety pharmacology and ADME content, and
+           wrote the logical axioms that let pharmacological assays be found, compared and
+           classified consistently.</p>
+        <span class="stack">Protégé, OWL, SQL</span>
+        <div class="links">
+          <a href="https://github.com/BioAssayOntology/BAO">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="where">2026 · ongoing</span>
+        <h3>Can a vision model judge a docked pose?</h3>
+        <p>Testing whether a vision-language model picks the correct ligand pose better than
+           GNINA CNN scoring when the pocket is slightly wrong — the situation whenever you
+           screen against a predicted structure. 25 crystal structures, pocket error swept
+           0.5 to 3.0 Å, with a control that separates real robustness from a model quietly
+           ignoring the protein.</p>
+        <span class="stack">Python, RDKit, GNINA, smina, PyMOL, ProLIF, PoseBusters</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="pubs" class="wrap section-pad split">
+  <div class="split-head"><h2>Publications &amp; talks</h2></div>
+  <div class="split-body">
+    <div class="pub">
+      <span class="meta">2026 · Springer CCIS (AusDM) · in press</span>
+      <span class="title">Structural Coverage and Modeling Tractability Across the Human Kinome:
+        A BUB1B Case Study</span>
+    </div>
+    <div class="pub">
+      <span class="meta">2026 · Journal of Biomedical Semantics</span>
+      <a class="title" href="https://doi.org/10.1186/s13326-025-00342-5">Advancing the BioAssay
+        Ontology Through Integrated PK/PD and Safety Pharmacology Representation</a>
+    </div>
+    <div class="pub">
+      <span class="meta">2024 · Molecular Analysis for Precision Oncology Congress, London · poster</span>
+      <span class="title">Building a predictive structure and finding inhibitors for BUB1B</span>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="dark">
+  <div class="wrap section-pad">
+    <h2>Toolkit</h2>
+    <div class="grid">
+      <div>
+        <h3>Machine learning</h3>
+        <p>PyTorch, TensorFlow, DeepChem, scikit-learn</p>
+      </div>
+      <div>
+        <h3>Structural modeling</h3>
+        <p>AlphaFold3, IntFOLD, Boltz, molecular dynamics, GROMACS, PyMOL, MM/GBSA</p>
+      </div>
+      <div>
+        <h3>Cheminformatics</h3>
+        <p>Schrödinger Maestro, RDKit, virtual screening, pharmacophore modeling, ChemAxon</p>
+      </div>
+      <div>
+        <h3>Code &amp; data</h3>
+        <p>Python, R, SQL, pandas, NumPy, statsmodels, KNIME, Pipeline Pilot, Neo4j, Git, Jupyter, HPC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="wrap section-pad">
+  <h2>Experience</h2>
+  <div style="margin-top:28px">
+    <div class="row">
+      <span class="when">Oct 2026 – now</span>
+      <div class="what">
+        <div class="role">AI Reasoning Analyst, Multimodal Sciences</div>
+        <div class="org">Workada</div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2021 – 2026</span>
+      <div class="what">
+        <div class="role">Graduate Research Scientist (Ph.D.)</div>
+        <div class="org">University of Miami Miller School of Medicine</div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">Aug – Dec 2024</span>
+      <div class="what">
+        <div class="role">Pharmaceutical R&amp;D Intern</div>
+        <div class="org">Eli Lilly and Company</div>
+      </div>
+    </div>
+    <div class="row">
+      <span class="when">2019 – 2020</span>
+      <div class="what">
+        <div class="role">Research Associate</div>
+        <div class="org">Molecular Therapeutics Shared Resource, University of Miami</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact" class="site-foot">
+  <div class="wrap foot-inner">
+    <p>Want to talk about protein modeling, screening or AI for science? Get in touch.</p>
+    <div class="foot-links">
+      <a class="btn btn-primary" href="mailto:joanglenny6@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/joan-glenny-pescov/">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/JoanGlennyPescov">GitHub</a>
+    </div>
+  </div>
+  <div class="wrap colophon">© 2026 Joan Glenny-Pescov · Miami, FL</div>
+</footer>
+
+</body>
+</html>
